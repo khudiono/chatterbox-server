@@ -4,10 +4,12 @@ var Messages = {
   _data: {},
 
   items: function() {
+    console.log('items' ,Messages._data);
     return _.chain(Object.values(Messages._data)).sortBy('createdAt');
   },
 
   add: function(message, callback = ()=>{}) {
+    console.log('id', message.objectId);
     Messages._data[message.objectId] = message;
     callback(Messages.items());
   },
@@ -32,5 +34,5 @@ var Messages = {
     message.roomname = message.roomname || '';
     return message;
   }
-  
+
 };

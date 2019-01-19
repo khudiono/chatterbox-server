@@ -9,9 +9,10 @@ var Parse = {
       type: 'POST',
       data: JSON.stringify(message),
       contentType: 'application/json',
+      // dataType: 'application/json',
       success: successCB,
-      error: errorCB || function (error) {
-        console.error('chatterbox: Failed to create message', error);
+      error: errorCB || function (error, errortype, other) {
+        console.error('chatterbox: Failed to create message', error, errortype, other);
       }
     });
   },
@@ -20,7 +21,7 @@ var Parse = {
     $.ajax({
       url: Parse.server,
       type: 'GET',
-      // data: { order: '-createdAt' },
+      data: { order: '-createdAt' },
       contentType: 'application/json',
       success: successCB,
       error: errorCB || function(error) {
