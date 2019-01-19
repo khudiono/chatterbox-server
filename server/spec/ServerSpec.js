@@ -1,3 +1,5 @@
+//node server request listener function
+
 var handler = require('../request-handler');
 var expect = require('chai').expect;
 var stubs = require('./Stubs');
